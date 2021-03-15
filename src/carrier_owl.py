@@ -50,9 +50,9 @@ def search_keyword(
         abstract = article['summary']
         score, hit_keywords = calc_score(abstract, keywords)
         if (score != 0) and (score >= score_threshold):
-            title_trans = get_translated_text('ja', 'en', title)
+            # title_trans = get_translated_text('ja', 'en', title)
             abstract = abstract.replace('\n', '')
-            abstract_trans = get_translated_text('ja', 'en', abstract)
+            # abstract_trans = get_translated_text('ja', 'en', abstract)
             abstract_trans = textwrap.wrap(abstract_trans, 40)
             abstract_trans = '\n'.join(abstract_trans)
             result = Result(
@@ -162,7 +162,7 @@ def main():
     day_before_yesterday = datetime.datetime.today() - datetime.timedelta(days=2)
     day_before_yesterday_str = day_before_yesterday.strftime('%Y%m%d')
     # datetime format YYYYMMDDHHMMSS
-    arxiv_query = f'({subject}) AND ' \
+    arxiv_query = f'{subject} AND ' \
                   f'submittedDate:' \
                   f'[{day_before_yesterday_str}000000 TO {day_before_yesterday_str}235959]'
     articles = arxiv.query(query=arxiv_query,
