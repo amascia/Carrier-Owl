@@ -2,10 +2,16 @@ subject: 'cat:cs.*'
 
 keywords:
     medical imaging: 5
-    convolutions: 3
-    transformers: 3
-    3D: 3
+    convolution: 3
+    transformer: 3
     MRI: 2
     alzheimer: 5
+    parkinson: 5
+    multiple sclerosis: 5
+    predict: 3
+    prognosis: 3
+    cognitive: 3
+    decline: 5 
+    domain adaptation: 3
 
 score_threshold: 0
