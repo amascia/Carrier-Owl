@@ -1,4 +1,4 @@
-import chromedriver_binary   # これは必ず入れる
+import chromedriver_binary
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import os
@@ -50,10 +50,10 @@ def search_keyword(
         abstract = article['summary']
         score, hit_keywords = calc_score(abstract, keywords)
         if (score != 0) and (score >= score_threshold):
-            title_trans = get_translated_text('ja', 'en', title)
+            # title_trans = get_translated_text('ja', 'en', title)
             abstract = abstract.replace('\n', '')
-            abstract_trans = get_translated_text('ja', 'en', abstract)
-            abstract_trans = textwrap.wrap(abstract_trans, 40)  # 40行で改行
+            # abstract_trans = get_translated_text('ja', 'en', abstract)
+            abstract_trans = textwrap.wrap(abstract_trans, 40)
             abstract_trans = '\n'.join(abstract_trans)
             result = Result(
                     url=url, title=title_trans, abstract=abstract_trans,
@@ -77,7 +77,6 @@ def send2app(text: str, slack_id: str, line_token: str) -> None:
 
 
 def notify(results: list, slack_id: str, line_token: str) -> None:
-    # 通知
     star = '*'*80
     today = datetime.date.today()
     n_articles = len(results)
@@ -109,24 +108,19 @@ def get_translated_text(from_lang: str, to_lang: str, from_text: str) -> str:
 
     sleep_time = 1
 
-    # urlencode
     from_text = urllib.parse.quote(from_text)
 
-    # url作成
     url = 'https://www.deepl.com/translator#' \
         + from_lang + '/' + to_lang + '/' + from_text
 
-    # ヘッドレスモードでブラウザを起動
     options = Options()
     options.add_argument('--headless')
 
-    # ブラウザーを起動
     driver = webdriver.Chrome(options=options)
     driver.get(url)
-    driver.implicitly_wait(10)  # 見つからないときは、10秒まで待つ
+    driver.implicitly_wait(10)
 
     for i in range(30):
-        # 指定時間待つ
         time.sleep(sleep_time)
         html = driver.page_source
         to_text = get_text_from_page_source(html)
@@ -134,7 +128,6 @@ def get_translated_text(from_lang: str, to_lang: str, from_text: str) -> str:
         if to_text:
             break
 
-    # ブラウザ停止
     driver.quit()
     return to_text
 
@@ -156,7 +149,6 @@ def get_config() -> dict:
 
 
 def main():
-    # debug用
     parser = argparse.ArgumentParser()
     parser.add_argument('--slack_id', default=None)
     parser.add_argument('--line_token', default=None)

@@ -1,11 +1,6 @@
 subject: 'cat:cs.*'
 
 keywords:
-    medical imaging: 5
-    convolutions: 3
     transformers: 3
-    3D: 3
-    MRI: 2
-    alzheimer: 5
 
 score_threshold: 0
