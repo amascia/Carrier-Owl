@@ -1,6 +1,6 @@
 subject: 'cat:cs.*'
 
 keywords:
-    transformers: 3
+    deep: 5
 
 score_threshold: 0
