@@ -1,7 +1,7 @@
 subject: 'cat:cs.*'
 
 keywords:
-    medical imaging: 5
+    medical imag: 5
     segmentation: 2
     MRI: 3
     alzheimer: 5
