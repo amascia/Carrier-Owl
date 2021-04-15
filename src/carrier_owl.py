@@ -162,7 +162,7 @@ def main():
     # day_before_yesterday_str = day_before_yesterday.strftime('%Y%m%d')
     # day_before_before_yesterday_str = day_before_before_yesterday.strftime('%Y%m%d')
 
-    day_before_before_yesterday_str = '20170411'
+    day_before_before_yesterday_str = '20200411'
     day_before_yesterday_str = '20210411'
     # datetime format YYYYMMDD
     arxiv_query = f'{subject} AND ' \
