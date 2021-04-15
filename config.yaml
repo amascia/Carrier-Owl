@@ -1,6 +1,15 @@
 subject: 'cat:cs.*'
 
 keywords:
+    medical imag: 5
+    segmentation: 2
+    MRI: 3
     quality control: 5
+    alzheimer: 5
+    parkinson: 5
+    multiple sclerosis: 5
+    prognosis: 3
+    cognitive: 3
+    decline: 5
 
 score_threshold: 0
