@@ -9,9 +9,9 @@ keywords:
     parkinson: 5
     multiple sclerosis: 5
     prognosis: 3
-    contrastive: 3
+    contrastive: 1
     decline: 5
-    self-supervised: 2
-    semi-supervised: 2
+    self-supervised: 1
+    semi-supervised: 1
 
-score_threshold: 0
+score_threshold: 2
